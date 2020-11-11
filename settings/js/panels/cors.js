@@ -48,7 +48,7 @@ $(document).ready(function () {
         $('#corsAddNewDomain').attr('disabled', true);
         $.post(
             OC.generateUrl('/settings/domains'),
-            { domain : $('#domain').val()},
+            { domain : $('#domain').val().trim()},
             function(response) {
                 if (response.message) {
                     OC.Notification.showTemporary(response.message);
