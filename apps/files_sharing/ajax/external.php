@@ -73,8 +73,10 @@ $externalManager = new \OCA\Files_Sharing\External\Manager(
 
 // check for ssl cert
 if (\substr($remote, 0, 5) === 'https') {
+	$httpsShareUri = \sprintf('%s/index.php/s/%s', $remote, $token);
+
 	try {
-		\OC::$server->getHTTPClientService()->newClient()->get($remote, [
+		\OC::$server->getHTTPClientService()->newClient()->get($httpsShareUri, [
 			'timeout' => 10,
 			'connect_timeout' => 10,
 		])->getBody();
