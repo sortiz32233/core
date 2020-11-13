@@ -158,6 +158,30 @@ class CorsControllerTest extends TestCase {
 		$this->assertEquals($response, $expectedResponse);
 	}
 
+	public function testAddInvalidProtocol() {
+		// Since this domain is invalid,
+		// the success message that the domain is white-listed, wouldn't be triggered
+		$this->logger
+			->expects($this->never())
+			->method('debug');
+
+		$this->config
+			->expects($this->never())
+			->method("setUserValue");
+
+		$this->l10n->method('t')
+			->willReturnCallback(function ($a) {
+				return $a;
+			});
+
+		$response = $this->corsController->addDomain("ftp://owncloud.com");
+
+		$responseData = $response->getData();
+
+		$this->assertArrayHasKey('message', $responseData);
+		$this->assertEquals("Protocol is missing in '%s'", $responseData['message']);
+	}
+
 	public function testRemoveInvalidDomain() {
 		// Since this domain id passed is invalid,
 		// the error message that invalid domain ID passed, would be triggered
