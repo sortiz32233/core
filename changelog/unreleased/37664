@@ -1,0 +1,5 @@
+Bugfix: Only allow http/https protocol on CORS
+
+Adding a white-listed domain allowed strange protocols like kkk://google.de, restricted to http/https
+
+https://github.com/owncloud/core/pull/38101
