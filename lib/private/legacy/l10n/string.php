@@ -69,7 +69,7 @@ class OC_L10N_String implements JsonSerializable {
 		$text = \vsprintf($text, $this->parameters);
 
 		// If vsprintf fails, return untranslated string
-		return $text ? $text : $this->text;
+		return $text === false ? $this->text : $text;
 	}
 
 	public function jsonSerialize() {
