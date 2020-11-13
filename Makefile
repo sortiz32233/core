@@ -54,7 +54,7 @@ PHPSTAN=php -d zend.enable_gc=0 vendor-bin/phpstan/vendor/bin/phpstan
 
 TEST_DATABASE=sqlite
 TEST_EXTERNAL_ENV=smb-silvershell
-TEST_PHP_SUITE=
+TEST_PHP_SUITE=tests/Core/Command/Config/App/SetConfigTest.php
 
 # Acceptance test flags (for shells supporting autocompletion of makefiles, eg: zsh)
 TEST_SERVER_URL?=

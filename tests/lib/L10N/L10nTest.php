@@ -51,7 +51,7 @@ class L10nTest extends TestCase {
 		$lMock->method('getTranslations')->willReturn(['malformed' => 'malformed %']);
 
 		$lString = new \OC_L10N_String($lMock, "malformed", []);
-		$this->assertEquals('malformed', $lString->__toString());
+		self::assertEquals('malformed', $lString->__toString());
 	}
 
 	public function testRussianPluralTranslations() {
