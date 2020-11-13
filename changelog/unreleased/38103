@@ -1,7 +1,7 @@
 Bugfix: Prevent server error when loading invalid/corrupt translations
 
 This fix prevents server errors when loading invalid or corrupt translations
-form Transifex. This is critical as every user is able to contribute to
+from Transifex. This is critical as every user is able to contribute to
 the ownCloud translations.
 
 https://github.com/owncloud/core/issues/37799
